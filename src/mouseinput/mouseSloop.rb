@@ -40,11 +40,7 @@ Window.loop do
                         o.draw
         end
         space.step(1.0/60.0)
-<<<<<<< HEAD
         wall.draw()
         wall2.draw()
         Window.draw(body.p.x-10, body.p.y-10, image)
-=======
-        Window.draw(body.p.x-10, body.p.y+5, image)
->>>>>>> d33220cb1d992b2e783bae6342d546dc6da49a59
 end
