@@ -27,6 +27,6 @@ static_body.p = CP::Vec2.new(0, 0)
 
  Window.loop do
   space.step(1.0/60.0)
-  Window.draw(body.p.x-10, body.p.y-10, image)
+  Window.draw(body.p.x-10, body.p.y+6, image)
   Window.draw(0, 400, wall_image)
  end
