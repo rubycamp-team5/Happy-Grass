@@ -1,6 +1,6 @@
 require "dxruby"
 require "chipmunk"
-require_relative "lib/lib/cp/"
+require_relative "../lib/cp/"
 line=[]
 
 space=CP::Space.new
@@ -10,7 +10,7 @@ body.p=CP::Vec2.new(100,100)
 shape=CP::Shape::Circle.new(body,40,CP::Vec2.new(0,0))
 space.add_body(body)
 space.add_shape(shape)
-image = Image.load("img/ball-g.png",20,20)
+image = Image.load("image/ball-g.png",20,20)
 obj=[]
 
 wall=CPStaticSlope.new(80,50,200,150,down=100,color=C_BLUE)
