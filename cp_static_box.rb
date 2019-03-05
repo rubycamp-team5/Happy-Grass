@@ -1,4 +1,4 @@
-﻿# 静的BOX
+# 静的BOX
 # 重力の影響を受けない矩形オブジェクト
 class CPStaticBox < CPBase
   attr_accessor :body, :shape
@@ -10,13 +10,20 @@ class CPStaticBox < CPBase
     else
       block = Image.new(20, 20)
     end
-    verts = [CP::Vec2.new(x1, y1), CP::Vec2.new(x1, y2), CP::Vec2.new(x2, y2+down), CP::Vec2.new(x2, y1+down)]
+
+    @v1 = CP::Vec2.new(x1, y1)
+    @v2 = CP::Vec2.new(x1, y2)
+    @v3 = CP::Vec2.new(x2, y2+down)
+    @v4 = CP::Vec2.new(x2, y1+down)
+    verts = [@v1, @v2, @v3, @v4]
+
     @shape = CP::Shape::Poly.new(CP::Space::STATIC_BODY, verts, CP::Vec2.new(0, 0))
-    @image = image || Image.new(x2 - x1 + 1, y2 - y1 + 1, C_WHITE)
-    ((@image.width / block.width) + 1).times do |i|
-      @image.draw(block.width * i, 0, block)
-    end
-    @x, @y = x1, y1
+    @image = image || Image.new(x2 - x1 + 1, y2 - y1 + 1, C_WHITE)  
+
+    #((@image.width / block.width) + 1).times do |i|
+    #  @image.draw(block.width * i, 0, block)
+    #end
+    @d = down
     shape.e = e
     shape.u = u
   end
@@ -25,6 +32,6 @@ class CPStaticBox < CPBase
   end
 
   def draw
-    Window.draw(@x, @y, @image)
+    Window.draw_morph(@v1.x, @v1.y, @v2.x, @v2.y+@d, @v3.x, @v3.y, @v4.x, @v4.y, @image)
   end
 end
