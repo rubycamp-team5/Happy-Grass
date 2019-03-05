@@ -12,6 +12,12 @@ space.add_body(body)
 space.add_shape(shape)
 image = Image.load("img/ball-g.png",20,20)
 obj=[]
+
+wall=CPStaticSlope.new(80,50,200,150)
+wall2=CPStaticSlope.new(280,250,400,350,-50)
+space.add(wall)
+space.add(wall2)
+
 Window.loop do
         if Input.mouse_down?(M_LBUTTON)
                 x=Input.mouse_pos_x
@@ -34,6 +40,8 @@ Window.loop do
                         o.draw
         end
         space.step(1.0/60.0)
+        wall.draw()
+        wall2.draw()
         Window.draw(body.p.x-10, body.p.y-10, image)
 end
 
