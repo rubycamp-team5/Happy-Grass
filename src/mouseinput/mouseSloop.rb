@@ -34,7 +34,5 @@ Window.loop do
                         o.draw
         end
         space.step(1.0/60.0)
-        Window.draw(body.p.x-10, body.p.y-10, image)
+        Window.draw(body.p.x-10, body.p.y+5, image)
 end
-
-
