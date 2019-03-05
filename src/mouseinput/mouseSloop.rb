@@ -4,11 +4,14 @@ require_relative "lib/lib/cp/"
 line=[]
 
 space=CP::Space.new
-space.gravity=CP::Vec2.new(0,500)
-
-
+space.gravity=CP::Vec2.new(0,100)
+body = CP::Body.new(1,CP::INFINITY)
+body.p=CP::Vec2.new(100,100)
+shape=CP::Shape::Circle.new(body,40,CP::Vec2.new(0,0))
+space.add_body(body)
+space.add_shape(shape)
+image = Image.load("img/ball-g.png",20,20)
 obj=[]
-
 Window.loop do
         if Input.mouse_down?(M_LBUTTON)
                 x=Input.mouse_pos_x
@@ -30,6 +33,8 @@ Window.loop do
         for o in obj do
                         o.draw
         end
+        space.step(1.0/60.0)
+        Window.draw(body.p.x-10, body.p.y-10, image)
 end
 
 
