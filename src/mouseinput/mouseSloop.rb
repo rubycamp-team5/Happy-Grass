@@ -13,8 +13,8 @@ space.add_shape(shape)
 image = Image.load("img/ball-g.png",20,20)
 obj=[]
 
-wall=CPStaticSlope.new(80,50,200,150)
-wall2=CPStaticSlope.new(280,250,400,350,-50)
+wall=CPStaticSlope.new(80,50,200,150,down=100,color=C_BLUE)
+wall2=CPStaticSlope.new(280,250,400,350,-50,color=C_GREEN)
 space.add(wall)
 space.add(wall2)
 
@@ -31,16 +31,19 @@ Window.loop do
                         x2 = [pos1[0],pos2[0]].max
                         y1 = [pos1[1],pos2[1]].min
                         y2 = [pos1[1],pos2[1]].max
-                        bl=CPStaticBox.new(x1,y1,x2,y2)
+                        bl=CPStaticBox.new(x1,y1,x2,y2,color=C_RED)
                         space.add(bl)
                         obj << bl
                 end
+        else
+                line.clear
         end
+        
         for o in obj do
                         o.draw
         end
         space.step(1.0/60.0)
         wall.draw()
         wall2.draw()
-        Window.draw(body.p.x-10, body.p.y-10, image)
+        Window.draw(body.p.x-10, body.p.y+4, image)
 end
