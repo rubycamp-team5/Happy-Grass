@@ -35,12 +35,15 @@ Window.loop do
                         space.add(bl)
                         obj << bl
                 end
+        else
+                line.clear
         end
+        
         for o in obj do
                         o.draw
         end
         space.step(1.0/60.0)
         wall.draw()
         wall2.draw()
-        Window.draw(body.p.x-10, body.p.y-10, image)
+        Window.draw(body.p.x-10, body.p.y+4, image)
 end
