@@ -64,7 +64,7 @@ module Game
 		end
 
 		def game_over
-			if body.p.y >= 400
+			if @body.p.y >= 400
 	   			scene_transition
 			end
 		end
