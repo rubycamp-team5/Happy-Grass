@@ -28,8 +28,8 @@ module Game
 			@space.step(1/60.0)
 
 			game_over
+            game_success
 			@goal.draw()
-			scene_transition if @goal.judgement(@body) == 1
 		end
 
 		def draw_string
@@ -69,11 +69,17 @@ module Game
 		end
 
 		def game_over
-			scene_transition if @body.p.y >= 500
+			if @body.p.y >= 500
+		    	Scene.move_to(:gameover) #unless @current
+            end
 		end
 
+        def game_success
+                Scene.move_to(:success) if @goal.judgement(@body) == 1
+
+        end
 		def scene_transition
-			Scene.move_to(:ending) #unless @current
+			Scene.move_to(:gameover) #unless @current
 		end
 	end
 end
