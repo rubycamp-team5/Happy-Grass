@@ -1,15 +1,15 @@
 module Opening
   class Director
-    #def initialize
+    def initialize
      # @bg_img = Image.load('image/op-image.png')
-    #end
+     @font = Font.new(32)
+    end
 
     def play
             Window.draw(10,10,Image.new(10,10,C_WHITE))
-      scene_transition
+            Window.draw_font(340, 300, 'Push Space key to restart',@font, color: C_RED)
+            scene_transition
     end
-
-    private
 
     def scene_transition
             Scene.move_to(:ending) if Input.key_push?(K_SPACE)
