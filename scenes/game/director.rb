@@ -16,7 +16,8 @@ module Game
 		end
 
 		def play
-			debug
+			#debug
+			p Window.real_fps
 			@mem_Point = [@x, @y]
 			get_mouse_pos
 
@@ -29,13 +30,13 @@ module Game
 
 			game_over
 			@goal.draw()
-			scene_transition if @goal.judgement(@ball) == 1
+			#scene_transition if @goal.judgement(@ball) == 1
 		end
 
 		def draw_string
 			@current_Point = [@x, @y]
 			count = 0
-			debug
+			#debug
 			until (@mem_Point[0] - @current_Point[0]).abs < 2 && (@mem_Point[1] - @current_Point[1]).abs < 2
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
@@ -63,7 +64,7 @@ module Game
 		end
 
 		def add_objects
-			bl = CPString.new(@current_Point[0], @current_Point[1], 5, 10, C_WHITE)
+			bl = CPString.new(@current_Point[0], @current_Point[1], 5, 10, [255, rand(126 .. 256), rand(126 .. 256), rand(126 .. 256)])
 			@obj << bl
 			@space.add(bl)
 		end
@@ -73,7 +74,7 @@ module Game
 		end
 
 		def scene_transition
-			Scene.move_to(:ending) #unless @current
+			#Scene.move_to(:ending) #unless @current
 		end
 	end
 end
