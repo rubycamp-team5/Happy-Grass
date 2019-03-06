@@ -7,6 +7,7 @@ module Ending
 
     def play
       Window.draw(0, 0, @bg_img)
+      Window.draw_font(340, 600, 'Push Space key to restart', @font, color: C_RED)
       scene_transition
     end
 
