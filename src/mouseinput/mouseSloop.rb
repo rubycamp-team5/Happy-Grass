@@ -7,16 +7,20 @@ space=CP::Space.new
 space.gravity=CP::Vec2.new(0,100)
 #ball
 image = Image.load("img/ball-g.png",20,20)
+#goalImg=Image.load("./goal2.png",20,20)
+goalImg=nil
 ball=CPBall.new(100,10,10,image)
 space.add(ball)
 
 #mouseInputtedLines
 obj=[]
 
-slope1=CPStaticSlope.new(80,50,200,150,down=100,color=C_BLUE)
-slope2=CPStaticSlope.new(280,250,400,350,-50,color=C_GREEN)
-space.add(slope1)
-space.add(slope2)
+#slope1=CPStaticSlope.new(80,50,200,150,down=100,color=C_BLUE)
+#slope2=CPStaticSlope.new(280,250,400,350,-50,color=C_GREEN)
+#space.add(slope1)
+#space.add(slope2)
+
+goal=GoalBox.new(300,200,20,goalImg)
 
 Window.loop do
         if Input.mouse_down?(M_LBUTTON)
@@ -43,7 +47,12 @@ Window.loop do
                         o.draw
         end
         space.step(1.0/60.0)
-        slope1.draw()
-        slope2.draw()
+        goal.draw()
+        #slope1.draw()
+        #slope2.draw()
         ball.draw()
+        if goal.judgement(ball)==1
+                        print("gooal")
+                        break
+        end
 end
