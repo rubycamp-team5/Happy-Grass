@@ -3,7 +3,7 @@ class GoalBox < Goal
                 @x,@y=x,y
                 @img= img||Image.new(size,size).fill(C_BLUE)
                 @target_class_name='CPBall'
-                @margin=30
+                @margin=10
         end
 end
 
