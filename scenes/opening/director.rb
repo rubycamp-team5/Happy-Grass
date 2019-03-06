@@ -1,11 +1,11 @@
 module Opening
   class Director
-    def initialize
-      @bg_img = Image.load('image/op-image.png')
-    end
+    #def initialize
+      #@bg_img = Image.load('image/op-image.png')
+    #end
 
     def play
-        Window.draw(0,0,@bp_image)      
+        #Window.draw(0,0,@bp_image)      
       scene_transition
     end
 

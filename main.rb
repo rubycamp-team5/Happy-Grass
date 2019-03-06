@@ -1,11 +1,17 @@
 require 'dxruby'
-require_relative 'lib/cp/'
-require_relative 'lib/'
+require 'chipmunk'
+require_relative 'scene'
+require_relative 'scenes/opening/director'
+require_relative 'scenes/ending/director'
+require_relative 'scenes/game/director'
+#require_relative 'src/image'
 
 Window.width=1024
 Window.height=768
 
-Scane,add(Openig::Director.new,:opening)
+Scene.add(Opening::Director.new, :opening)
+Scene.add(Game::Director.new, :game)
+Scene.add(Ending::Director.new, :ending)
 
 Scene.move_to :opening
 

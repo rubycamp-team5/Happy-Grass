@@ -4,13 +4,14 @@ module Game
 			@obj = []
 			@count = 0
 			@space = CP::Space.new
-			@space.gravity=CP::Vec2.new(0,100/2)
+			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
 			@body.p=CP::Vec2.new(100,100)
-			@shape=CP::Shape::Circle.new(body,40,CP::Vec2.new(0,0))
-			@space.add_body(body)
-			@space.add_shape(shape)
-			@image = Image.load("img/ball-g.png",20,20)
+			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
+			@space.add_body(@body)
+			@space.add_shape(@shape)
+			@image = Image.load("lib/img/ball-g.png",20,20)
+			
 		end
 
 		def play
@@ -24,7 +25,9 @@ module Game
 			draw_objects
 
         			Window.draw(@body.p.x-10, @body.p.y+4, @image)
+			@space.step(1/60.0)
 
+			game_over
 		end
 
 		def draw_string

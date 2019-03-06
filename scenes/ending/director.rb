@@ -15,3 +15,4 @@ module Ending
       Scene.move_to(:opening) if Input.key_push?(K_SPACE)
   end
 end
+end
