@@ -1,8 +1,11 @@
+# coding:utf-8
+
 require "dxruby"
 require "chipmunk"
 require_relative "lib/lib/cp/"
 line=[]
 
+font = Font.new(32)
 space=CP::Space.new
 space.gravity=CP::Vec2.new(0,500)
 #ball
@@ -52,6 +55,8 @@ Window.loop do
         #slope2.draw()
         ball.draw()
         if goal.judgement(ball)==1
+                        Window.draw_font(100,100,"font!!",font)
+                        sleep 3
                         print("gooal")
                         break
         end
