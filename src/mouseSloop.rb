@@ -7,7 +7,8 @@ line=[]
 
 font = Font.new(32)
 space=CP::Space.new
-image = Image.load("img/ball-g.png",20,20)
+space.gravity=CP::Vec2.new(0,100)
+image = Image.load("./image/ball-g.png",20,20)
 #goalImg=Image.load("./goal2.png",20,20)
 goalImg=nil
 ball=CPBall.new(100,0,10,image)
