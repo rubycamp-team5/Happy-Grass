@@ -16,9 +16,10 @@ Scene.add(Game::Director.new, :game)
 Scene.add(GameOver::Director.new, :gameover)
 Scene.add(Success::Director.new,:success)
 
-Scene.move_to :opening
 
+Scene.start()
 Window.loop do
     break if Input.key_push?(K_ESCAPE)
     Scene.play
+
 end

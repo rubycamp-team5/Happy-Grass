@@ -13,7 +13,10 @@ module GameOver
     end
 
     def scene_transition
-      Scene.move_to(:opening) if Input.key_push?(K_SPACE)
+            if Input.key_push?(K_SPACE)
+                Scene.move_to(:opening)
+                Scene.start()
+            end
   end
 end
 end
