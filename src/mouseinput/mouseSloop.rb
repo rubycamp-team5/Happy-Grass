@@ -4,12 +4,12 @@ require_relative "lib/lib/cp/"
 line=[]
 
 space=CP::Space.new
-space.gravity=CP::Vec2.new(0,100)
+space.gravity=CP::Vec2.new(0,500)
 #ball
 image = Image.load("img/ball-g.png",20,20)
 #goalImg=Image.load("./goal2.png",20,20)
 goalImg=nil
-ball=CPBall.new(100,10,10,image)
+ball=CPBall.new(100,0,10,image)
 space.add(ball)
 
 #mouseInputtedLines
@@ -20,7 +20,7 @@ obj=[]
 #space.add(slope1)
 #space.add(slope2)
 
-goal=GoalBox.new(300,200,20,goalImg)
+goal=GoalBox.new(500,400,20,goalImg)
 
 Window.loop do
         if Input.mouse_down?(M_LBUTTON)
