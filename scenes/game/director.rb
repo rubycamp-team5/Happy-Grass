@@ -1,73 +1,57 @@
 module Game
 	class Director
 		def initialize
+            @line=[]
 			@obj = []
-			@count = 0
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
-			@body = CP::Body.new(1,CP::INFINITY)
-			@body.p=CP::Vec2.new(100,100)
-			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
-			@space.add_body(@body)
-			@space.add_shape(@shape)
-			@image = Image.load("lib/img/ball-g.png",20,20)
+            @image=nil
+			#@image = Image.load("lib/img/ball-g.png",20,20)
+            @ball = CPBall.new(100,0,10,@image)
+            @space.add(@ball)
+            @goal=GoalBox.new(600,400,10,nil)
 			
 		end
 
 		def play
-			get_mouse_pos
-			@mem_Point = [@x, @y]
+                if Input.mouse_down?(M_LBUTTON)
+                        x=Input.mouse_pos_x
+                        y=Input.mouse_pos_y
+                        @line<<[x,y]
+                        if @line.size()-2>0
+                                l = @line.size()-1
+                                pos1=@line[l]
+                                pos2=@line[l-1]
+                                cand_x = [pos1[0],pos2[0]]
+                                cand_y = [pos1[1],pos2[1]]
+                                x1=cand_x.min
+                                x2=cand_x.max
+                                y1=cand_y.min
+                                y2=cand_y.max
 
-       			 if Input.mouse_down?(M_LBUTTON)
-				draw_string
-			end
+                                bl = CPStaticBox.new(x1,y1,x2,y2,color=C_RED)
+                                @space.add(bl)
+                                @obj << bl
+                        end
+                else
+                        @line.clear
+                end
 
-			draw_objects
-
-        			Window.draw(@body.p.x-10, @body.p.y+4, @image)
-			@space.step(1/60.0)
-
-			game_over
-		end
-
-		def draw_string
-			@current_Point = [@x, @y]
-			count = 0
-			until (@mem_Point[0] - @current_Point[0]).abs < 2 && (@mem_Point[1] - @current_Point[1]).abs < 2
-				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
-				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
-				count = count + 1
-				if count%5 == 0 then
-					add_objects
-					count = 0
-				end
-			end
-		end
-
-		def get_mouse_pos
-			@x=Input.mouse_pos_x
-			@y=Input.mouse_pos_y
-		end
-
-
-		def create_ball
-
-		end
-
-		def draw_objects
-			for o in @obj
-				o.draw
-			end
-		end
-
-		def add_object
-			bl = CPCircle.new(@current_Point[0], @current_Point[1], 5, 10, )
-			@obj << bl
-			space.add(bl)
-		end
+                for o in @obj do
+                    o.draw
+                end
+                @space.step(1.0/60.0)
+                game_over()
+                @ball.draw()
+                @goal.draw()
+                if @goal.judgement(@ball)==1
+                        print("goal")
+                        scene_transition
+                end
+            end
 
 		def game_over
-			if @body.p.y >= 400
+              if @ball.body.p.y >= 500
 	   			scene_transition
 			end
 		end

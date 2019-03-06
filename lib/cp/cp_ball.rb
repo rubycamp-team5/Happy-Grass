@@ -7,9 +7,10 @@ class CPBall < CPBase
                 @shape=CP::Shape::Circle.new(@body,r,CP::Vec2.new(0,0))
                 @image=image || Image.new(r*2,r*2).circle_fill(r,r,r,C_WHITE)
                 @r=r
+
         end
 
         def draw
-                Window.draw(@body.p.x-@r,@body.p.y-@r-@r*0.8,@image)
+                Window.draw(@body.p.x-@r,@body.p.y-@r,@image)
         end
 end
