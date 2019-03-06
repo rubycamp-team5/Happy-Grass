@@ -13,6 +13,7 @@ module Game
 			get_mouse_pos
 			@current_Point = [@x, @y]
 			@goal = GoalBox.new(600, 400, 10, nil)
+			@time = 0
 		end
 
 		def play
@@ -27,6 +28,9 @@ module Game
         			Window.draw(@body.p.x-10, @body.p.y+4, @image)
 			@space.step(1/60.0)
 
+			p @obj.size
+			del_line
+
 			game_over
 			@goal.draw()
 			scene_transition if @goal.judgement(@body) == 1
@@ -40,9 +44,20 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if count%3 == 0 then
+				if (count%3 == 0) && (@obj.size < 100) then
 					add_objects
 					count = 0
+				end
+			end
+		end
+
+		def del_line
+			if !(@obj.empty?) then
+				if @time%100 == 0 then
+					@obj.shift
+					@time = 0
+				else
+					@time = 0
 				end
 			end
 		end
