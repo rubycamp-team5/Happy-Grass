@@ -10,13 +10,15 @@ require_relative 'lib/cp/'
 Window.width=1024
 Window.height=768
 
-Scene.add(Opening::Director.new, :opening)
-Scene.add(Game::Director.new, :game)
-Scene.add(Ending::Director.new, :ending)
+Scene.add(Opening::Director, :opening)
+Scene.add(Game::Director, :game)
+Scene.add(Ending::Director, :ending)
+Scene.register_first_scene(:opening)
 
-Scene.move_to :opening
 
+Scene.start()
 Window.loop do
     break if Input.key_push?(K_ESCAPE)
     Scene.play
+
 end

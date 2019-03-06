@@ -1,6 +1,7 @@
 module Game
 	class Director
 		def initialize
+            print("game initializen")
             @line=[]
 			@obj = []
 			@space = CP::Space.new
