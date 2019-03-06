@@ -8,8 +8,9 @@ line=[]
 font = Font.new(32)
 space=CP::Space.new
 space.gravity=CP::Vec2.new(0,100)
-image = Image.load("./image/ball-g.png",20,20)
+#image = Image.load("./image/ball-g.png",20,20)
 #goalImg=Image.load("./goal2.png",20,20)
+image=nil
 goalImg=nil
 ball=CPBall.new(100,0,10,image)
 space.add(ball)
@@ -54,8 +55,8 @@ Window.loop do
         #slope2.draw()
         ball.draw()
         if goal.judgement(ball)==1
-                        Window.draw_font(100,100,"font!!",font)
-                        sleep 3
+#                        Window.draw_font(100,100,"font!!",font)
+ #                       sleep 3
                         print("gooal")
                         break
         end
