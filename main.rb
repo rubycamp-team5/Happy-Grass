@@ -1,5 +1,6 @@
 require 'dxruby'
 require 'chipmunk'
+require_relative 'lib/cp'
 require_relative 'scene'
 require_relative 'scenes/opening/director'
 require_relative 'scenes/ending/director'
