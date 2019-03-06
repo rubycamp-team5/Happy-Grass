@@ -17,7 +17,6 @@ module Game
 
 		def play
 			#debug
-			p Window.real_fps
 			@mem_Point = [@x, @y]
 			get_mouse_pos
 
@@ -30,7 +29,7 @@ module Game
 
 			game_over
 			@goal.draw()
-			#scene_transition if @goal.judgement(@ball) == 1
+			scene_transition if @goal.judgement(@body) == 1
 		end
 
 		def draw_string
@@ -70,11 +69,11 @@ module Game
 		end
 
 		def game_over
-			scene_transition if @body.p.y >= 400
+			scene_transition if @body.p.y >= 500
 		end
 
 		def scene_transition
-			#Scene.move_to(:ending) #unless @current
+			Scene.move_to(:ending) #unless @current
 		end
 	end
 end
