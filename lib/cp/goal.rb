@@ -4,9 +4,9 @@ class Goal
     GOAL_IMG=Image.new(10,10,C_WHITE)
 
     #ball ‚ªgoal‚É‚«‚½‚çtrue‚ð‚©‚¦‚·
-    def judgement(current)
-            #return 0 unless current
-            if((@x-@margin)..(@x+@margin)).include?(current.body.p.x.to_i)&&((@y-@margin)..(@y+@margin)).include?(current.body.p.y.to_i)
+    def judgement(body)
+            #return 0 unless body
+            if((@x-@margin)..(@x+@margin)).include?(body.p.x.to_i)&&((@y-@margin)..(@y+@margin)).include?(body.p.y.to_i)
                     return 1
             else
                     return 0

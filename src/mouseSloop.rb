@@ -15,7 +15,6 @@ image = Image.load("img/ball-g.png",20,20)
 
 obj=[]
 count = 0
-dragSpace = 2
 
 x=Input.mouse_pos_x
 y=Input.mouse_pos_y
@@ -26,10 +25,11 @@ Window.loop do
 	mem_Point = [x, y]
 
 	x=Input.mouse_pos_x
-        y=Input.mouse_pos_y
+        	y=Input.mouse_pos_y
 
-        if Input.mouse_down?(M_LBUTTON)
+	if Input.mouse_down?(M_LBUTTON)
 		current_Point = [x, y]
+		count = 0
 		until (mem_Point[0] - current_Point[0]).abs < 2 && (mem_Point[1] - current_Point[1]).abs < 2
 			current_Point[0] = current_Point[0] + ((current_Point[0] > mem_Point[0]) ? -1 : 1)
 			current_Point[1] = current_Point[1] + ((current_Point[1] > mem_Point[1]) ? -1 : 1)
