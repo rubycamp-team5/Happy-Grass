@@ -13,6 +13,8 @@ require_relative 'scenes/game/director3'
 
 Window.width=900
 Window.height=650
+Window.load_icon("lib/img/icon.ico")
+Window.caption = "Happy Grass"
 
 Scene.add(Opening::Director, :opening)
 Scene.add(Seleciton::Director, :selection)
