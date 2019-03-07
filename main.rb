@@ -17,6 +17,7 @@ Scene.add(Game::Director, :game)
 Scene.add(Game::Director2, :game2)
 Scene.add(GameOver::Director, :gameover)
 Scene.add(Success::Director,:success)
+Scene.add(Endroll::Director, :endroll)
 
 
 Scene.register_first_scene(:opening)
