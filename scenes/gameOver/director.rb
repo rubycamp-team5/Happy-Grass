@@ -13,10 +13,15 @@ module GameOver
     end
 
     def scene_transition
-            if Input.key_push?(K_SPACE)
-                Scene.move_to(:opening)
-                Scene.start()
+            if Input.key_push?(K_SPACE) and false
+                Scene.reset_scene()
+                Scene.move_to(:selection)
             end
+            if Input.key_push?(K_LSHIFT)
+                    Scene.reset_scene()
+                    Scene.move_to_latest()
+            end
+
   end
 end
 end
