@@ -22,7 +22,7 @@ module Seleciton
 		end
 
 		def bgimage_draw
-			bgimage = Image.load("lib/img/selection.bgimage.png")
+			bgimage = Image.load("lib/img/MAPSELECT.001.png")
 			Window.draw(0, 0, bgimage)
 		end
 

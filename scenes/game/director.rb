@@ -22,6 +22,8 @@ module Game
 		end
 
 		def play
+			p Window.real_fps
+		
 			bgimage_draw
 			
 			#debug
@@ -56,7 +58,7 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if (count%3 == 0) && (@obj.size < 100) then
+				if (count%10 == 0) && (@obj.size < 100) then
 					add_objects
 					count = 0
 				end
