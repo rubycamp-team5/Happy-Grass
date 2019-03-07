@@ -25,7 +25,9 @@ Scene.add(Success::Director,:success)
 Scene.register_first_scene(:opening)
 
 Scene.start()
+bgm=Sound.new("./lib/music/bgm.mid")
 Window.loop do
+    bgm.play()
     break if Input.key_push?(K_ESCAPE)
     Scene.play
 
