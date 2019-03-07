@@ -17,8 +17,6 @@ module Game
 		end
 
 		def play
-			bgimage_draw
-			
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -36,11 +34,6 @@ module Game
 			game_over
 			@goal.draw()
 			scene_transition if @goal.judgement(@body) == 1
-		end
-
-		def bgimage_draw
-			bg = Image.load("lib/img/bg-game.png")
-			Window.draw(0, 0, bg)
 		end
 
 		def draw_string

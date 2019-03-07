@@ -5,12 +5,13 @@ require_relative 'scene'
 require_relative 'scenes/opening/director'
 require_relative 'scenes/ending/director'
 require_relative 'scenes/game/director'
-#require_relative 'src/image'
+require_relative 'scenes/selection/director'
 
 Window.width=1024
 Window.height=768
 
 Scene.add(Opening::Director.new, :opening)
+Scene.add(Seleciton::Director.new, :selection)
 Scene.add(Game::Director.new, :game)
 Scene.add(Ending::Director.new, :ending)
 
