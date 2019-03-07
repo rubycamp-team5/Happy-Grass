@@ -25,7 +25,7 @@ module Game
             @space.add(@floor2)
             @floor3=CPStaticSlope.new(410,220,500,320,50)
             @space.add(@floor3)
-            @floor4 = CPStaticBox.new(580,300,880,400)
+            @floor4 = CPStaticBox.new(680,300,880,400)
             @space.add(@floor4)
 
 		end
@@ -53,7 +53,7 @@ module Game
             @floor2.draw()
             @floor3.draw()
             @floor4.draw()
-            
+
 		end
 
 		def draw_string
