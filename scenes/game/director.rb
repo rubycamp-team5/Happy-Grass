@@ -75,7 +75,7 @@ module Game
 
 		def del_line
 			if !(@obj.empty?) then
-				puts " ", "time", @time
+				#puts " ", "time", @time
 				@time = @time + 1
 
 				@obj.shift if @time >= 100
@@ -85,7 +85,7 @@ module Game
 		end
 
 		def debug(mem = @mem_Point, current = @current_Point)
-			print mem, current, "\n"
+			#print mem, current, "\n"
 		end
 
 		def get_mouse_pos
