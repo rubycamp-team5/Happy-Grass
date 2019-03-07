@@ -6,7 +6,7 @@ module Game
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
-			@body.p=CP::Vec2.new(100,100)
+			@body.p=CP::Vec2.new(100,10)
 			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
@@ -18,9 +18,9 @@ module Game
 			@remain = 10
 			@limit = 20
 			@bg = Image.load("lib/img/bg-game.png")
-			####game floor obj###
-			@floor1 = CPStaticSlope.new(80,200,400,500)
-			@space.add(@floor1)
+            ####game floor obj###
+            @floor1 = CPStaticSlope.new(80,100,140,130,50)
+            @space.add(@floor1)
 
 		end
 
