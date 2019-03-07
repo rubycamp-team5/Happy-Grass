@@ -15,15 +15,18 @@ module Game
             @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
 			@time = 0
 
+			@bg = Image.load("lib/img/bg-game.png")
             ####game floor obj###
             @floor1 = CPStaticSlope.new(80,200,400,500)
             @space.add(@floor1)
 
-            
-
 		end
 
 		def play
+			p Window.real_fps
+		
+			bgimage_draw
+			
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -35,13 +38,16 @@ module Game
         			Window.draw(@body.p.x-10, @body.p.y+4, @image)
 			@space.step(1/60.0)
 
-			#p @obj.size
 			del_line
 
 			game_over
             game_success
 			@goal.draw()
             @floor1.draw()
+		end
+
+		def bgimage_draw
+			Window.draw(0, 0,@bg)
 		end
 
 		def draw_string
@@ -52,7 +58,7 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if (count%3 == 0) && (@obj.size < 100) then
+				if (count%10 == 0) && (@obj.size < 100) then
 					add_objects
 					count = 0
 				end
