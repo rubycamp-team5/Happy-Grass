@@ -12,20 +12,21 @@ module Game
 			@image = Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
-            @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
+            			@goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
 			@time = 0
 
-            ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,200,400,500)
-            @space.add(@floor1)
+		            	####game floor obj###
+		            	@floor1 = CPStaticSlope.new(80,200,400,500)
+            			@space.add(@floor1)
 
+			@bg = Image.load("lib/img/bg-game.png")
 		end
 
 		def play
 			p Window.real_fps
-		
-			bgimage_draw
 			
+			bgimage_draw
+
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -40,14 +41,13 @@ module Game
 			del_line
 
 			game_over
-            game_success
+            			game_success
 			@goal.draw()
-            @floor1.draw()
+            			@floor1.draw()
 		end
 
 		def bgimage_draw
-			bg = Image.load("lib/img/bg-game.png")
-			Window.draw(0, 0, bg)
+			Window.draw(0, 0, @bg)
 		end
 
 		def draw_string
