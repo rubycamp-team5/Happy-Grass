@@ -15,6 +15,7 @@ module Game
             @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
 			@time = 0
 
+			@bg = Image.load("lib/img/bg-game.png")
             ####game floor obj###
             @floor1 = CPStaticSlope.new(80,200,400,500)
             @space.add(@floor1)
@@ -46,8 +47,7 @@ module Game
 		end
 
 		def bgimage_draw
-			bg = Image.load("lib/img/bg-game.png")
-			Window.draw(0, 0, bg)
+			Window.draw(0, 0,@bg)
 		end
 
 		def draw_string
