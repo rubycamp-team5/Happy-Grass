@@ -13,6 +13,7 @@ module Game
 			get_mouse_pos
 			@current_Point = [@x, @y]
             @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
+            #@goal = GoalBox.new(700, 400, 10,nil)
 			@time = 0
 
             ####game floor obj###
