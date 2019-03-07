@@ -12,6 +12,7 @@ module Game
 			@image = Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
+			@bg = Image.load("lib/img/bg-game.png")
             @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
             #@goal = GoalBox.new(700, 400, 10,nil)
 			@time = 0
