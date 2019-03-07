@@ -1,5 +1,5 @@
 module Game
-	class Director
+	class Director2
 		def initialize
 			@obj = []
 			@space = CP::Space.new
@@ -12,8 +12,15 @@ module Game
 			@image = Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
-			@goal = GoalBox.new(600, 400, 10, nil)
+            @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
 			@time = 0
+
+            ####game floor obj###
+            @floor1 = CPStaticSlope.new(80,200,300,500)
+            @space.add(@floor1)
+            @floor2 = CPStaticBox.new(400,300,600,500)
+            @space.add(@floor2)
+
 		end
 
 		def play
@@ -28,12 +35,15 @@ module Game
         			Window.draw(@body.p.x-10, @body.p.y+4, @image)
 			@space.step(1/60.0)
 
-			p @obj.size
+			#p @obj.size
 			del_line
 
 			game_over
+            game_success
 			@goal.draw()
-			scene_transition if @goal.judgement(@body) == 1
+            @floor1.draw()
+            @floor2.draw()
+            
 		end
 
 		def draw_string
@@ -84,11 +94,17 @@ module Game
 		end
 
 		def game_over
-			scene_transition if @body.p.y >= 500
+			if @body.p.y >= 500
+		    	Scene.move_to(:gameover) #unless @current
+            end
 		end
 
+        def game_success
+                Scene.move_to(:success) if @goal.judgement(@body) == 1
+
+        end
 		def scene_transition
-			Scene.move_to(:ending) #unless @current
+			Scene.move_to(:gameover) #unless @current
 		end
 	end
 end
