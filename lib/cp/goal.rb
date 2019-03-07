@@ -1,7 +1,6 @@
 class Goal
     attr_accessor :goal
     #GOAL_IMG=Image.load("")
-    GOAL_IMG=Image.new(10,10,C_WHITE)
 
     #ball ‚ªgoal‚É‚«‚½‚çtrue‚ð‚©‚¦‚·
     def judgement(body)
