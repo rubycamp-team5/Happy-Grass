@@ -20,9 +20,6 @@ class CPStaticSlope < CPBase
     @shape = CP::Shape::Poly.new(CP::Space::STATIC_BODY, verts, CP::Vec2.new(0, 0))
     @image = image || Image.new(x2 - x1 + 1, y2 - y1 + 1, color)  
 
-    #((@image.width / block.width) + 1).times do |i|
-    #  @image.draw(block.width * i, 0, block)
-    #end
     @d = down
     shape.e = e
     shape.u = u

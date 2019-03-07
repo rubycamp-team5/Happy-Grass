@@ -20,6 +20,6 @@ module Success
                     Scene.reset_scene()
                     Scene.move_to(:selection) 
             end
+    end
   end
-end
 end
