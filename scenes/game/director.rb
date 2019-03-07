@@ -24,7 +24,6 @@ module Game
 		end
 
 		def play
-			p Window.real_fps
 		
 			bgimage_draw
 			gauge_draw
