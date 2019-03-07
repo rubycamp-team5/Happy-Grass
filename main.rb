@@ -9,8 +9,8 @@ require_relative 'scenes/success/director'
 require_relative 'scenes/game/director2'
 #require_relative 'src/image'
 
-Window.width=1024
-Window.height=768
+Window.width=900
+Window.height=650
 
 Scene.add(Opening::Director, :opening)
 Scene.add(Game::Director, :game)
