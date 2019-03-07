@@ -12,7 +12,7 @@ module Opening
     end
 
     def scene_transition
-      Scene.move_to(:game) if Input.key_push?(K_SPACE)
+      Scene.move_to(:game3) if Input.key_push?(K_SPACE)
     end
   end
 end
