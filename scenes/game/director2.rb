@@ -94,7 +94,7 @@ module Game
 		end
 
 		def game_over
-			if @body.p.y >= 500
+			if @body.p.y >= 600
 		    	Scene.move_to(:gameover) #unless @current
             end
 		end
