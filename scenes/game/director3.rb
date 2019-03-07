@@ -2,16 +2,17 @@
 module Game
 	class Director3
 		def initialize
-            @sound=Sound.new("./lib/music/fail.wav")
+            #@sound=Sound.new("./lib/music/fail.wav")
+			@r = 15
 			@obj = []
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
 			@body.p=CP::Vec2.new(100,40)
-			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
+			@shape=CP::Shape::Circle.new(@body,@r,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
-			@image = Image.load("lib/img/ball-g.png",20,20)
+			@image = Image.new(@r*2, @r*2).circle_fill(@r, @r, @r, C_RED)#Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
             @goal = GoalBox.new(500, 400, 10, Image.load("lib/img/a.png"))
@@ -44,7 +45,7 @@ module Game
 
 			draw_objects
 
-        			Window.draw(@body.p.x-10, @body.p.y+4, @image)
+        			Window.draw(@body.p.x-@r, @body.p.y-@r, @image)
 			@space.step(1/60.0)
 
 			#p @obj.size
@@ -68,7 +69,7 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if (count%3 == 0) && (@obj.size < @limit) then
+				if (count%10 == 0) && (@obj.size < @limit) then
 					add_objects
 					count = 0
 				end
@@ -77,12 +78,12 @@ module Game
 
 		def del_line
 			if !(@obj.empty?) then
-				if @time%100 == 0 then
-					@obj.shift
-					@time = 0
-				else
-					@time = 0
-				end
+				#puts " ", "time", @time
+				@time = @time + 1
+
+				@obj.shift if @time >= 100
+			else
+				@time = 0
 			end
 		end
 
@@ -108,8 +109,8 @@ module Game
 		end
 
 		def game_over
-			if @body.p.y >= @gameoverLine
-                @sound.play()
+			if @body.p.y >= Window.height
+                #@sound.play()
 		    	Scene.move_to(:gameover) #unless @current
             end
 		end

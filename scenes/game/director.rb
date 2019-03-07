@@ -1,16 +1,16 @@
 module Game
 	class Director
 		def initialize
-            @sound=Sound.new("./lib/music/fail.wav")
+            #@sound=Sound.new("./lib/music/fail.wav")
 			@obj = []
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
 			@body.p=CP::Vec2.new(100,10)
-			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
+			@shape=CP::Shape::Circle.new(@body,15,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
-			@image = Image.load("lib/img/ball-g.png",20,20)
+			@image = Image.new(30, 30).circle_fill(15, 15, 15, C_RED)#Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
 			@goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
@@ -36,7 +36,7 @@ module Game
 
 			draw_objects
 
-        			Window.draw(@body.p.x-10, @body.p.y+4, @image)
+        			Window.draw(@body.p.x-15, @body.p.y-15, @image)
 			@space.step(1/60.0)
 
 			del_line
@@ -109,8 +109,8 @@ module Game
 		end
 
 		def game_over
-			if @body.p.y >= 500
-                @sound.play()
+			if @body.p.y >= Window.height
+                #@sound.play()
 		    	Scene.move_to(:gameover) #unless @current	
 	end
 		end

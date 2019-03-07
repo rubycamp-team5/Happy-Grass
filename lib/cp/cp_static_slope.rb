@@ -1,4 +1,4 @@
-# 静的BOX
+﻿# 静的BOX
 # 重力の影響を受けない矩形オブジェクト
 class CPStaticSlope < CPBase
   attr_accessor :body, :shape
@@ -36,7 +36,6 @@ class CPStaticSlope < CPBase
                  Window.draw_morph(@v1.x, @v1.y, @v2.x, @v2.y+@d, @v3.x, @v3.y, @v4.x, @v4.y, @image)
           else
                  Window.draw_morph(@v1.x, @v1.y, @v2.x, @v2.y, @v3.x, @v3.y-@d, @v4.x, @v4.y, @image)
-
           end
   end
 end
