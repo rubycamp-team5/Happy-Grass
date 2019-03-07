@@ -1,6 +1,7 @@
 module Game
 	class Director
 		def initialize
+
             @sound=Sound.new("./lib/music/fail.wav")
 			@obj = []
 			@space = CP::Space.new
@@ -19,7 +20,7 @@ module Game
 			@limit = 20
 			@bg = Image.load("lib/img/bg-game.png")
             ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,100,140,130,50)
+            @floor1 = CPStaticSlope.new(80,100,140,130,50,color=C_BLUE)
             @space.add(@floor1)
 
 		end
