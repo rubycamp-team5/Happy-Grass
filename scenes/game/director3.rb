@@ -15,7 +15,7 @@ module Game
 			@current_Point = [@x, @y]
             @goal = GoalBox.new(500, 400, 10, Image.load("lib/img/a.png"))
 			@time = 0
-
+@bg = Image.load("lib/img/bg-game.png")
             @gameoverLine=500
             ####game floor obj###
             @floor1 = CPStaticSlope.new(80,100,200,400)
