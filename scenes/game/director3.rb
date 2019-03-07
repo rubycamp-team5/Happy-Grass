@@ -7,6 +7,7 @@ module Game
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
 			@body.p=CP::Vec2.new(100,40)
+            @r=15
 			@shape=CP::Shape::Circle.new(@body,@r,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
