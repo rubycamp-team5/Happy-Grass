@@ -19,7 +19,7 @@ module GameOver
      end
 
     def scene_transition
-            if Input.key_push?(K_SPACE) and false
+            if Input.key_push?(K_SPACE) 
                 Scene.reset_scene()
                 Scene.move_to(:selection)
             end

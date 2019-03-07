@@ -27,9 +27,14 @@ Scene.add(Success::Director,:success)
 Scene.register_first_scene(:opening)
 
 Scene.start()
-#bgm=Sound.new("./lib/music/bgm.mid")
+
+bgm=Sound.new("./lib/music/bgm.mid")
+first=true
 Window.loop do
-    #bgm.play()
+    if first
+        bgm.play()
+        first=false
+    end
     break if Input.key_push?(K_ESCAPE)
     #puts Input.mouse_pos_x, Input.mouse_pos_y, "\n"
     Scene.play

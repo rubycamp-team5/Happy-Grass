@@ -2,7 +2,7 @@ module Game
 	class Director2
 		def initialize
 			@obj = []
-            #@sound=Sound.new("./lib/music/fail.wav")
+
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
@@ -21,13 +21,13 @@ module Game
 			@remain = 10
 			@limit = 20
             ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,100,200,400)
+            @floor1 = CPStaticSlope.new(80,100,200,400,down=100,C_RED)
             @space.add(@floor1)
-            @floor2 = CPStaticBox.new(300,300,330,320)
+            @floor2 = CPStaticBox.new(300,300,330,320,C_YELLOW)
             @space.add(@floor2)
-						@floor3 = CPStaticBox.new(500,340,530,360)
+						@floor3 = CPStaticBox.new(500,340,530,360,C_GREEN)
             @space.add(@floor3)
-						@floor4 = CPStaticBox.new(700,380,730,400)
+						@floor4 = CPStaticBox.new(700,380,730,400,C_BLUE)
 						@space.add(@floor4)
 
 		end
@@ -116,7 +116,6 @@ module Game
 
 		def game_over
 			if @body.p.y >= Window.height
-                #@sound.play()
 		    	Scene.move_to(:gameover) #unless @current
             end
 		end
