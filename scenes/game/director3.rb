@@ -28,10 +28,14 @@ module Game
             @floor4 = CPStaticBox.new(605,370,880,400)
             @space.add(@floor4)
 
+
+			@remain = 10
+			@limit = 20
 		end
 
 		def play
 			bgimage_draw
+            gauge_draw
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -64,7 +68,7 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if (count%3 == 0) && (@obj.size < 100) then
+				if (count%3 == 0) && (@obj.size < @limit) then
 					add_objects
 					count = 0
 				end
@@ -119,6 +123,14 @@ module Game
 		end
 				def bgimage_draw
 			Window.draw(0, 0,@bg)
+		end
+		def gauge_draw
+			@remain = 100 - @obj.size*(100/@limit)
+			pos1 = [Window.width - 150, 10]
+			pos2 = [Window.width - 150 + @remain, 30]
+			Window.drawBoxFill(pos1[0], pos1[1], pos2[0], pos2[1], [63, 255, 0, 0])
+			Window.drawBoxFill(Window.width - 160, 5, Window.width - 150 + 120, 35, [30, 0, 255, 0])
+
 		end
 	end
 end
