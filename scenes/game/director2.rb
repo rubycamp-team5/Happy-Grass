@@ -26,6 +26,7 @@ module Game
 		end
 
 		def play
+			bgimage_draw
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -108,5 +109,9 @@ module Game
 		def scene_transition
 			Scene.move_to(:gameover) #unless @current
 		end
+				def bgimage_draw
+			Window.draw(0, 0,@bg)
+		end
 	end
+			
 end
