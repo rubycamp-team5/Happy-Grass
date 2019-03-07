@@ -28,8 +28,12 @@ Scene.register_first_scene(:opening)
 
 Scene.start()
 bgm=Sound.new("./lib/music/bgm.mid")
+first=true
 Window.loop do
-    bgm.play()
+    if first
+        bgm.play()
+        first=false
+    end
     break if Input.key_push?(K_ESCAPE)
     Scene.play
 
