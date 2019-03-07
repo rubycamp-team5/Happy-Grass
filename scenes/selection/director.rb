@@ -11,7 +11,7 @@ module Seleciton
 			when [2] then
 				Scene.move_to(:game)
 			when [3] then
-				Scene.move_to(:game3)
+				Scene.move_to(:game2)
 			when [4] then
 				Scene.move_to(:game3)
 			end
@@ -29,9 +29,9 @@ module Seleciton
 		def setting_pos
 			i = 0
 			3.time{
-				i = i +1 	 
-				@pos[i] = window_relative(50, 25*i) 
-			}			
+				i = i +1
+				@pos[i] = window_relative(50, 25*i)
+			}
 		end
 
 		def window_relative(x, y)
@@ -43,14 +43,14 @@ module Seleciton
 
 		def mouse_input
 			i = 0
-			3.time{				
+			3.time{
 				return i if Input.mouse_down?(M_LBUTTON) && mouse_on_image(i)
 				i = i+1
 			}
 		end
 
 		def mouse_on_image(i)
-			return (@image[i, 0] - Input.mousePosX).abs < @image[i].width && (@image[i, 1] - Input.mousePosY).abs < @image[i].height  
-		end		
+			return (@image[i, 0] - Input.mousePosX).abs < @image[i].width && (@image[i, 1] - Input.mousePosY).abs < @image[i].height
+		end
 	end
 end

@@ -5,7 +5,7 @@ module Game
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
 			@body = CP::Body.new(1,CP::INFINITY)
-			@body.p=CP::Vec2.new(100,100)
+			@body.p=CP::Vec2.new(100,10)
 			@shape=CP::Shape::Circle.new(@body,40,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
@@ -18,10 +18,14 @@ module Game
 			@time = 0
 
             ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,200,300,500)
+            @floor1 = CPStaticSlope.new(80,100,200,400)
             @space.add(@floor1)
-            @floor2 = CPStaticBox.new(400,300,600,500)
+            @floor2 = CPStaticBox.new(300,300,330,320)
             @space.add(@floor2)
+						@floor3 = CPStaticBox.new(500,340,530,360)
+            @space.add(@floor3)
+						@floor4 = CPStaticBox.new(700,380,730,400)
+						@space.add(@floor4)
 
 		end
 
@@ -45,8 +49,10 @@ module Game
             game_success
 			@goal.draw()
             @floor1.draw()
-            @floor2.draw()
-            
+						@floor2.draw()
+						@floor3.draw()
+						@floor4.draw()
+
 		end
 
 		def draw_string
@@ -113,5 +119,5 @@ module Game
 			Window.draw(0, 0,@bg)
 		end
 	end
-			
+
 end
