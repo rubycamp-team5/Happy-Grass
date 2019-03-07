@@ -23,11 +23,11 @@ module Game
             ####game floor obj###
             @floor1 = CPStaticSlope.new(80,100,200,400,down=100,C_RED)
             @space.add(@floor1)
-            @floor2 = CPStaticBox.new(300,300,330,320,C_YELLOW)
+            @floor2 = CPStaticSlope.new(300,300,330,320, down = 0,C_YELLOW)
             @space.add(@floor2)
-						@floor3 = CPStaticBox.new(500,340,530,360,C_GREEN)
+						@floor3 = CPStaticSlope.new(500,340,530,360, down = 0,C_GREEN)
             @space.add(@floor3)
-						@floor4 = CPStaticBox.new(700,380,730,400,C_BLUE)
+						@floor4 = CPStaticSlope.new(700,380,730,400, down = 0,C_BLUE)
 						@space.add(@floor4)
 
 		end
