@@ -28,7 +28,7 @@ module Game
         			Window.draw(@body.p.x-10, @body.p.y+4, @image)
 			@space.step(1/60.0)
 
-			p @obj.size
+			#p @obj.size
 			del_line
 
 			game_over
