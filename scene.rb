@@ -14,7 +14,6 @@ class Scene
         end
 
         def self.register_first_scene(title)
-
                 @@start_scene=title
         end
 

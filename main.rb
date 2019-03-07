@@ -11,11 +11,12 @@ require_relative 'scenes/success/director'
 Window.width=1024
 Window.height=768
 
-Scene.add(Opening::Director.new, :opening)
-Scene.add(Game::Director.new, :game)
-Scene.add(GameOver::Director.new, :gameover)
-Scene.add(Success::Director.new,:success)
+Scene.add(Opening::Director, :opening)
+Scene.add(Game::Director, :game)
+Scene.add(GameOver::Director, :gameover)
+Scene.add(Success::Director,:success)
 
+Scene.register_first_scene(:opening)
 
 Scene.start()
 Window.loop do
