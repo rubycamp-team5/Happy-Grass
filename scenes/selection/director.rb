@@ -11,9 +11,9 @@ module Seleciton
 			when [2] then
 				Scene.move_to(:game)
 			when [3] then
-				Scene.move_to(:game1)
+				Scene.move_to(:game3)
 			when [4] then
-				Scene.move_to(:game2)
+				Scene.move_to(:game3)
 			end
 		end
 
