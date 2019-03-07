@@ -11,10 +11,10 @@ module Game
 			@shape=CP::Shape::Circle.new(@body,@r,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
-			@image = Image.new(@r*2, @r*2).circle_fill(@r, @r, @r, C_RED)#Image.load("lib/img/ball-g.png",20,20)
+			@image = Image.new(@r*2, @r*2).circle_fill(@r, @r, @r, C_RED)
 			get_mouse_pos
 			@current_Point = [@x, @y]
-            @goal = GoalBox.new(500, 400, 10, Image.load("lib/img/a.png"))
+            @goal = GoalBox.new(500, 400, 10, Image.load("lib/img/goal.png"))
 			@time = 0
 @bg = Image.load("lib/img/bg-game.png")
             @gameoverLine=500

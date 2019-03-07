@@ -5,8 +5,6 @@ module Opening
     end
 
     def play
-            #Window.draw(10,10,Image.new(10,10,C_WHITE))
-            #Window.draw_font(340, 300, 'Push Space key to restart',@font, color: C_RED)
             bgimage_draw
             scene_transition
     end

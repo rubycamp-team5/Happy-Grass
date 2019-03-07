@@ -21,9 +21,6 @@ module Seleciton
 			end
 		end
 
-		def get_mouse_pos
-			print Input.mousePosX, " ", Input.mousePosY, "\n"
-		end
 
 		def bgimage_draw
 			bgimage = Image.load("lib/img/MAPSELECT.001.png")

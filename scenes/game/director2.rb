@@ -10,12 +10,11 @@ module Game
 			@shape=CP::Shape::Circle.new(@body,15,CP::Vec2.new(0,0))
 			@space.add_body(@body)
 			@space.add_shape(@shape)
-			@image = Image.new(30, 30).circle_fill(15, 15, 15, C_RED)#Image.load("lib/img/ball-g.png",20,20)
+			@image = Image.new(30, 30).circle_fill(15, 15, 15, C_RED)
 			get_mouse_pos
 			@current_Point = [@x, @y]
 			@bg = Image.load("lib/img/bg-game.png")
-            @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/a.png"))
-            #@goal = GoalBox.new(700, 400, 10,nil)
+            @goal = GoalBox.new(600, 400, 10, Image.load("lib/img/goal.png"))
 			@time = 0
 
 			@remain = 10
@@ -35,7 +34,6 @@ module Game
 		def play
 			bgimage_draw
 			gauge_draw
-			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
 
@@ -46,7 +44,6 @@ module Game
         			Window.draw(@body.p.x-15, @body.p.y-15, @image)
 			@space.step(1/60.0)
 
-			#p @obj.size
 			del_line
 
 			game_over

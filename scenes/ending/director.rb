@@ -1,7 +1,6 @@
 module Ending
   class Director
     def initialize
-      #@bg_img = Image.load('ending_bg.png')
       @font = Font.new(32)
       @bg_img = Image.new(100, 100, C_WHITE)
     end
