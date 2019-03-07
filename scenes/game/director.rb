@@ -2,7 +2,6 @@ module Game
 	class Director
 		def initialize
 
-            @sound=Sound.new("./lib/music/fail.wav")
 			@obj = []
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
@@ -111,7 +110,6 @@ module Game
 
 		def game_over
 			if @body.p.y >= 500
-                @sound.play()
 		    	Scene.move_to(:gameover) #unless @current	
 	end
 		end
