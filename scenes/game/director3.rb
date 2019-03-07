@@ -19,13 +19,13 @@ module Game
 @bg = Image.load("lib/img/bg-game.png")
             @gameoverLine=500
             ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,100,200,400)
+            @floor1 = CPStaticSlope.new(80,100,200,400,down=100,C_RED)
             @space.add(@floor1)
-            @floor2 = CPStaticSlope.new(300,270,400,370,-50)
+            @floor2 = CPStaticSlope.new(300,270,400,370,-50,C_BLUE)
             @space.add(@floor2)
-            @floor3=CPStaticSlope.new(410,220,500,320,50)
+            @floor3=CPStaticSlope.new(410,220,500,320,50,C_GREEN)
             @space.add(@floor3)
-            @floor4 = CPStaticBox.new(605,370,880,400)
+            @floor4 = CPStaticBox.new(605,370,880,400,C_YELLOW)
             @space.add(@floor4)
 
 
