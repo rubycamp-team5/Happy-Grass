@@ -9,10 +9,14 @@ module Seleciton
 
 			case Input.keys
 			when [2] then
+                Scene.register_latest(:game)
 				Scene.move_to(:game)
 			when [3] then
+
+                Scene.register_latest(:game2)
 				Scene.move_to(:game2)
 			when [4] then
+                Scene.register_latest(:game2)
 				Scene.move_to(:game3)
 			end
 		end
