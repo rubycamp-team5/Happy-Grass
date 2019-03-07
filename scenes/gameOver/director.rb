@@ -23,7 +23,7 @@ module GameOver
                 Scene.reset_scene()
                 Scene.move_to(:selection)
             end
-            if Input.key_push?(K_LSHIFT)
+            if Input.key_push?(K_R)
                     Scene.reset_scene()
                     Scene.move_to_latest()
             end

@@ -16,7 +16,7 @@ module Seleciton
                 Scene.register_latest(:game2)
 				Scene.move_to(:game2)
 			when [4] then
-                Scene.register_latest(:game2)
+                Scene.register_latest(:game3)
 				Scene.move_to(:game3)
 			end
 		end
