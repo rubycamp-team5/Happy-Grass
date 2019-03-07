@@ -7,9 +7,15 @@ module Success
     end
 
     def play
-      Window.draw(0, 0, @bg_img)
-      Window.draw_font(400,300,'Success!',@font,color:C_RED)
+      #Window.draw(0, 0, @bg_img)
+      #Window.draw_font(400,300,'Success!',@font,color:C_RED)
+      bgimage_draw
       scene_transition
+    end
+
+    def bgimage_draw
+	bg = Image.load("lib/img/SUCCESS.png")
+	Window.draw(0, 0, bg)
     end
 
     def scene_transition
