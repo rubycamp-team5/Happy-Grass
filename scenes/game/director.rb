@@ -1,7 +1,7 @@
 module Game
 	class Director
 		def initialize
-      @sound=Sound.new("./lib/music/fail.wav")
+            @sound=Sound.new("./lib/music/fail.wav")
 			@obj = []
 			@space = CP::Space.new
 			@space.gravity=CP::Vec2.new(0,100)
@@ -72,6 +72,7 @@ module Game
 			pos2 = [Window.width - 150 + @remain, 30]
 			Window.drawBoxFill(pos1[0], pos1[1], pos2[0], pos2[1], [63, 255, 0, 0])
 			Window.drawBoxFill(Window.width - 160, 5, Window.width - 150 + 120, 35, [30, 0, 255, 0])
+
 		end
 
 		def del_line
@@ -103,6 +104,7 @@ module Game
 		def add_objects
 			bl = CPString.new(@current_Point[0], @current_Point[1], 5, 10, [255, rand(126 .. 256), rand(126 .. 256), rand(126 .. 256)])
 			@obj << bl
+
 			@space.add(bl)
 		end
 

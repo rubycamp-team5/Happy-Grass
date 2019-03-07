@@ -18,6 +18,8 @@ module Game
             #@goal = GoalBox.new(700, 400, 10,nil)
 			@time = 0
 
+			@remain = 10
+			@limit = 20
             ####game floor obj###
             @floor1 = CPStaticSlope.new(80,100,200,400)
             @space.add(@floor1)
@@ -32,6 +34,7 @@ module Game
 
 		def play
 			bgimage_draw
+			gauge_draw
 			#debug
 			@mem_Point = [@x, @y]
 			get_mouse_pos
@@ -50,10 +53,18 @@ module Game
             game_success
 			@goal.draw()
             @floor1.draw()
-						@floor2.draw()
-						@floor3.draw()
-						@floor4.draw()
+            @floor2.draw()
+            @floor3.draw()
+            @floor4.draw()
 
+		end
+
+		def gauge_draw
+			@remain = 100 - @obj.size*(100/@limit)
+			pos1 = [Window.width - 150, 10]
+			pos2 = [Window.width - 150 + @remain, 30]
+			Window.drawBoxFill(pos1[0], pos1[1], pos2[0], pos2[1], [63, 255, 0, 0])
+			Window.drawBoxFill(Window.width - 160, 5, Window.width - 150 + 120, 35, [30, 0, 255, 0])
 		end
 
 		def draw_string
@@ -64,7 +75,7 @@ module Game
 				@current_Point[0] = @current_Point[0] + ((@current_Point[0] > @mem_Point[0]) ? -1 : 1)
 				@current_Point[1] = @current_Point[1] + ((@current_Point[1] > @mem_Point[1]) ? -1 : 1)
 				count = count + 1
-				if (count%3 == 0) && (@obj.size < 100) then
+				if (count%3 == 0) && (@obj.size < @limit) then
 					add_objects
 					count = 0
 				end
