@@ -1,5 +1,5 @@
 module Game
-	class Director
+	class Director2
 		def initialize
 			@obj = []
 			@space = CP::Space.new
@@ -12,14 +12,14 @@ module Game
 			@image = Image.load("lib/img/ball-g.png",20,20)
 			get_mouse_pos
 			@current_Point = [@x, @y]
-			@goal = GoalBox.new(600, 400, 10, Image.load("lib/cp/a.png"))
+			@goal = GoalBox.new(750, 400, 10, nil)
 			@time = 0
 
             ####game floor obj###
-            @floor1 = CPStaticSlope.new(80,200,400,500)
+            @floor1 = CPStaticSlope.new(80,200,300,500)
             @space.add(@floor1)
-
-            
+            @floor2 = CPStaticBox.new(400,300,600,500)
+            @space.add(@floor2)
 
 		end
 
@@ -42,6 +42,8 @@ module Game
             game_success
 			@goal.draw()
             @floor1.draw()
+            @floor2.draw()
+            
 		end
 
 		def draw_string
