@@ -21,7 +21,6 @@ class CPString < CPBase
 
   def draw
     apply_force(@x-@body.p.x, @y-@body.p.y)
-    #@body.p = CP::Vec2.new(@x, @y)
     Window.draw_rot(@body.p.x - @r, @body.p.y - @r, @image, @body.a * 180.0 / Math::PI)
   end
 end

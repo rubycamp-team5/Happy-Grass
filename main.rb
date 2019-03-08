@@ -36,7 +36,6 @@ Window.loop do
         first=false
     end
     break if Input.key_push?(K_ESCAPE)
-    #puts Input.mouse_pos_x, Input.mouse_pos_y, "\n"
     Scene.play
 
 end

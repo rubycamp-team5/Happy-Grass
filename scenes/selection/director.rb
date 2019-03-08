@@ -12,7 +12,6 @@ module Seleciton
                 Scene.register_latest(:game)
 				Scene.move_to(:game)
 			when [3] then
-
                 Scene.register_latest(:game2)
 				Scene.move_to(:game2)
 			when [4] then
@@ -21,9 +20,6 @@ module Seleciton
 			end
 		end
 
-		def get_mouse_pos
-			print Input.mousePosX, " ", Input.mousePosY, "\n"
-		end
 
 		def bgimage_draw
 			bgimage = Image.load("lib/img/MAPSELECT.001.png")

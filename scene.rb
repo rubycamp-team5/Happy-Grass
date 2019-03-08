@@ -23,13 +23,13 @@ class Scene
                 self.move_to_first()
         end
 
-         def self.reset_scene()
+        def self.reset_scene()
                 @@scenes={}
                 @@current_scene=nil
                 for d in @@directores do
                         self._add(d[0],d[1])
                 end
-         end
+        end
 
 
         def self.move_to(title)
@@ -49,10 +49,9 @@ class Scene
                 @@scenes[@@current_scene].play
         end
 
+        #register_first_scene‚Å“o˜^‚µ‚½ƒV[ƒ“‚É‘JˆÚ
         def self.move_to_first()
                 self.move_to(@@start_scene)
         end
-
-
 end
 
